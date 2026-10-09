@@ -4,8 +4,7 @@ An end-to-end Business Intelligence case study covering business analysis, SQL, 
 
 Built by **Alan Akandzhi** as part of a BI Intern home assignment.
 
-> **Live Demo:** Coming soon
-
+> **Live Demo:** [Open the interactive Streamlit app](https://alan-bi-case-study.streamlit.app/)
 ---
 
 ## Overview
