@@ -1,0 +1,1187 @@
+/* =========================================================
+   BI Intern Case Study
+   Visual System
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   Design tokens
+   --------------------------------------------------------- */
+
+:root {
+    --bg: #f8fafc;
+    --surface: #ffffff;
+
+    --navy-950: #020617;
+    --navy-900: #0f172a;
+    --navy-800: #1e293b;
+    --navy-700: #334155;
+
+    --text: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+
+    --blue: #3b82f6;
+    --blue-dark: #2563eb;
+    --blue-light: #dbeafe;
+    --blue-soft: #eff6ff;
+
+    --green: #10b981;
+    --green-light: #d1fae5;
+
+    --red: #ef4444;
+    --red-light: #fee2e2;
+
+    --amber: #f59e0b;
+
+    --border: #e2e8f0;
+    --border-light: #f1f5f9;
+
+    --shadow-sm:
+        0 1px 2px rgba(15, 23, 42, 0.04);
+
+    --shadow-md:
+        0 8px 24px rgba(15, 23, 42, 0.07);
+
+    --shadow-lg:
+        0 18px 50px rgba(15, 23, 42, 0.10);
+}
+
+
+/* ---------------------------------------------------------
+   Application
+   --------------------------------------------------------- */
+
+.stApp {
+    background:
+        linear-gradient(
+            180deg,
+            #f8fafc 0%,
+            #ffffff 42%,
+            #f8fafc 100%
+        );
+}
+
+.block-container {
+    max-width: 1320px;
+    padding-top: 2.1rem;
+    padding-bottom: 4rem;
+}
+
+
+/* ---------------------------------------------------------
+   Typography
+   --------------------------------------------------------- */
+
+html,
+body,
+[class*="css"] {
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--text) !important;
+}
+
+h1 {
+    font-size: 2.55rem !important;
+    font-weight: 760 !important;
+    letter-spacing: -0.045em !important;
+}
+
+h2 {
+    font-size: 1.75rem !important;
+    font-weight: 720 !important;
+    letter-spacing: -0.03em !important;
+}
+
+h3 {
+    font-size: 1.15rem !important;
+    font-weight: 680 !important;
+}
+
+p,
+li {
+    color: var(--text-secondary);
+    line-height: 1.72;
+}
+
+
+/* ---------------------------------------------------------
+   Sidebar
+   --------------------------------------------------------- */
+
+section[data-testid="stSidebar"] {
+    background:
+        linear-gradient(
+            180deg,
+            #0f172a 0%,
+            #111827 100%
+        );
+    border-right: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+section[data-testid="stSidebar"] * {
+    color: #e2e8f0;
+}
+
+section[data-testid="stSidebar"] a {
+    border-radius: 9px;
+    transition:
+        background-color 180ms ease,
+        transform 180ms ease;
+}
+
+section[data-testid="stSidebar"] a:hover {
+    background-color: rgba(255, 255, 255, 0.07);
+    transform: translateX(2px);
+}
+
+section[data-testid="stSidebar"] hr {
+    border-color: rgba(255, 255, 255, 0.10);
+}
+
+section[data-testid="stSidebar"] [data-testid="stSidebarNavSeparator"] {
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+
+/* Sidebar brand */
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    margin-top: 1.5rem;
+    padding: 1rem;
+
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+}
+
+.sidebar-brand-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    flex: 0 0 40px;
+
+    border-radius: 10px;
+
+    color: #ffffff !important;
+    background:
+        linear-gradient(
+            135deg,
+            #3b82f6,
+            #2563eb
+        );
+
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.sidebar-brand-title {
+    color: #ffffff !important;
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.sidebar-brand-subtitle {
+    color: #94a3b8 !important;
+    font-size: 0.73rem;
+    margin-top: 0.15rem;
+}
+
+
+/* Sidebar profile */
+
+.sidebar-profile {
+    margin-top: 0.8rem;
+    padding: 0.8rem 1rem;
+}
+
+.sidebar-profile-name {
+    color: #ffffff !important;
+    font-size: 0.82rem;
+    font-weight: 650;
+}
+
+.sidebar-profile-role {
+    color: #94a3b8 !important;
+    font-size: 0.72rem;
+    margin-top: 0.1rem;
+}
+
+
+/* ---------------------------------------------------------
+   Hero
+   --------------------------------------------------------- */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 390px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 3.5rem 3.6rem;
+    margin-bottom: 2.7rem;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a 0%,
+            #111827 52%,
+            #172554 100%
+        );
+
+    border:
+        1px solid rgba(255, 255, 255, 0.06);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 24px 70px rgba(15, 23, 42, 0.16);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+}
+
+.hero-topline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 1.4rem;
+}
+
+.hero-label {
+    color: #93c5fd;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.hero-scope {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+
+    color: #bfdbfe;
+    font-size: 0.7rem;
+    font-weight: 750;
+    letter-spacing: 0.1em;
+
+    padding: 0.42rem 0.7rem;
+
+    border:
+        1px solid rgba(147, 197, 253, 0.22);
+
+    background:
+        rgba(59, 130, 246, 0.10);
+
+    border-radius: 999px;
+}
+
+.scope-dot {
+    width: 6px;
+    height: 6px;
+
+    background: #60a5fa;
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 10px rgba(96, 165, 250, 0.8);
+}
+
+.hero-title {
+    max-width: 850px;
+
+    color: #ffffff;
+
+    font-size: clamp(2.8rem, 5vw, 4.7rem);
+    font-weight: 780;
+
+    letter-spacing: -0.06em;
+    line-height: 0.99;
+
+    margin-bottom: 1.3rem;
+}
+
+.hero-subtitle {
+    max-width: 760px;
+
+    color: #cbd5e1;
+
+    font-size: 1.06rem;
+    line-height: 1.72;
+}
+
+.hero-identity {
+    margin-top: 2.2rem;
+    padding-top: 1.35rem;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.10);
+
+    max-width: 760px;
+}
+
+.hero-name {
+    color: #ffffff;
+    font-size: 0.94rem;
+    font-weight: 700;
+}
+
+.hero-role {
+    color: #94a3b8;
+    font-size: 0.78rem;
+    margin-top: 0.2rem;
+}
+
+
+/* Hero decorative glow */
+
+.hero-glow {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(1px);
+}
+
+.hero-glow-one {
+    width: 460px;
+    height: 460px;
+
+    right: -150px;
+    top: -190px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(59, 130, 246, 0.24) 0%,
+            rgba(59, 130, 246, 0.08) 38%,
+            transparent 70%
+        );
+}
+
+.hero-glow-two {
+    width: 300px;
+    height: 300px;
+
+    right: 16%;
+    bottom: -220px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(14, 165, 233, 0.15) 0%,
+            transparent 68%
+        );
+}
+
+
+/* Hero subtle grid */
+
+.hero-grid {
+    position: absolute;
+    inset: 0;
+
+    opacity: 0.07;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.2) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.2) 1px,
+            transparent 1px
+        );
+
+    background-size: 42px 42px;
+
+    mask-image:
+        linear-gradient(
+            to left,
+            black,
+            transparent 72%
+        );
+}
+
+
+/* ---------------------------------------------------------
+   Badges
+   --------------------------------------------------------- */
+
+.bi-badge,
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+
+    width: fit-content;
+
+    border-radius: 999px;
+
+    font-size: 0.7rem;
+    font-weight: 750;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.bi-badge {
+    padding: 0.35rem 0.65rem;
+}
+
+.bi-badge-blue {
+    color: #2563eb;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+}
+
+.bi-badge-green {
+    color: #047857;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+}
+
+.bi-badge-red {
+    color: #b91c1c;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+}
+
+
+/* ---------------------------------------------------------
+   Section headings
+   --------------------------------------------------------- */
+
+.section-heading {
+    margin-top: 2.5rem;
+    margin-bottom: 1.4rem;
+}
+
+.section-label {
+    color: var(--blue-dark);
+
+    font-size: 0.72rem;
+    font-weight: 800;
+
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+
+    margin-bottom: 0.45rem;
+}
+
+.section-title {
+    color: var(--text);
+
+    font-size: 1.9rem;
+    font-weight: 750;
+
+    letter-spacing: -0.035em;
+    line-height: 1.2;
+}
+
+.section-description {
+    max-width: 780px;
+
+    color: var(--text-muted);
+
+    font-size: 0.95rem;
+    line-height: 1.65;
+
+    margin-top: 0.55rem;
+}
+
+
+/* ---------------------------------------------------------
+   KPI cards
+   --------------------------------------------------------- */
+
+.kpi-card {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 164px;
+
+    padding: 1.35rem 1.4rem;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform 190ms ease,
+        box-shadow 190ms ease,
+        border-color 190ms ease;
+}
+
+.kpi-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: #cbd5e1;
+}
+
+.kpi-accent {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 3px;
+
+    background: var(--blue);
+}
+
+.kpi-green .kpi-accent {
+    background: var(--green);
+}
+
+.kpi-red .kpi-accent {
+    background: var(--red);
+}
+
+.kpi-navy .kpi-accent {
+    background: var(--navy-800);
+}
+
+.kpi-label {
+    color: var(--text-muted);
+
+    font-size: 0.7rem;
+    font-weight: 800;
+
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.kpi-value {
+    color: var(--text);
+
+    font-size: 2.35rem;
+    font-weight: 780;
+
+    letter-spacing: -0.05em;
+    line-height: 1;
+
+    margin-top: 1rem;
+}
+
+.kpi-caption {
+    color: #94a3b8;
+
+    font-size: 0.74rem;
+    line-height: 1.4;
+
+    margin-top: 0.8rem;
+}
+
+
+/* ---------------------------------------------------------
+   Navigation cards
+   --------------------------------------------------------- */
+
+.navigation-card {
+    position: relative;
+
+    min-height: 220px;
+
+    padding: 1.45rem;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #f8fafc 100%
+        );
+
+    border: 1px solid var(--border);
+    border-radius: 15px;
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform 190ms ease,
+        box-shadow 190ms ease,
+        border-color 190ms ease;
+}
+
+.navigation-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #bfdbfe;
+
+    box-shadow:
+        0 14px 34px rgba(15, 23, 42, 0.09);
+}
+
+.navigation-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 1.2rem;
+}
+
+.navigation-card-number {
+    color: var(--blue);
+
+    font-size: 0.78rem;
+    font-weight: 800;
+
+    letter-spacing: 0.1em;
+}
+
+.navigation-card-tag {
+    color: var(--text-muted);
+
+    font-size: 0.64rem;
+    font-weight: 750;
+
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+
+    padding: 0.28rem 0.5rem;
+
+    background: #f1f5f9;
+
+    border-radius: 999px;
+}
+
+.navigation-card-title {
+    color: var(--text);
+
+    font-size: 1.08rem;
+    font-weight: 720;
+
+    margin-bottom: 0.55rem;
+}
+
+.navigation-card-text {
+    color: var(--text-muted);
+
+    font-size: 0.86rem;
+    line-height: 1.62;
+}
+
+.navigation-card-arrow {
+    position: absolute;
+
+    left: 1.45rem;
+    bottom: 1.3rem;
+
+    color: var(--blue-dark);
+
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    transition: transform 180ms ease;
+}
+
+.navigation-card:hover .navigation-card-arrow {
+    transform: translateX(3px);
+}
+
+
+/* ---------------------------------------------------------
+   Methodology cards
+   --------------------------------------------------------- */
+
+.method-card {
+    min-height: 165px;
+
+    padding: 1.25rem;
+
+    background: #ffffff;
+
+    border: 1px solid var(--border);
+    border-radius: 13px;
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.method-card:hover {
+    transform: translateY(-2px);
+    border-color: #bfdbfe;
+    box-shadow: var(--shadow-md);
+}
+
+.method-number {
+    color: var(--blue);
+
+    font-size: 0.7rem;
+    font-weight: 800;
+
+    letter-spacing: 0.1em;
+
+    margin-bottom: 1.1rem;
+}
+
+.method-title {
+    color: var(--text);
+
+    font-size: 1rem;
+    font-weight: 720;
+
+    margin-bottom: 0.4rem;
+}
+
+.method-text {
+    color: var(--text-muted);
+
+    font-size: 0.8rem;
+    line-height: 1.55;
+}
+
+
+/* ---------------------------------------------------------
+   Insight card
+   --------------------------------------------------------- */
+
+.insight-card {
+    display: flex;
+    gap: 1rem;
+
+    padding: 1.35rem 1.45rem;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #ffffff
+        );
+
+    border: 1px solid #bfdbfe;
+    border-radius: 14px;
+}
+
+.insight-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    flex: 0 0 38px;
+
+    color: #ffffff;
+    background: var(--blue);
+
+    border-radius: 10px;
+
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.insight-title {
+    color: var(--blue-dark);
+
+    font-size: 0.7rem;
+    font-weight: 800;
+
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.insight-value {
+    color: var(--text);
+
+    font-size: 1.8rem;
+    font-weight: 780;
+
+    letter-spacing: -0.04em;
+
+    margin-top: 0.3rem;
+}
+
+.insight-text {
+    color: var(--text-secondary);
+
+    font-size: 0.88rem;
+    line-height: 1.6;
+
+    margin-top: 0.25rem;
+}
+
+
+/* ---------------------------------------------------------
+   Status pills
+   --------------------------------------------------------- */
+
+.status-pill {
+    gap: 0.4rem;
+
+    padding: 0.34rem 0.65rem;
+
+    color: #047857;
+    background: #ecfdf5;
+
+    border: 1px solid #a7f3d0;
+}
+
+.status-pill-dot {
+    width: 6px;
+    height: 6px;
+
+    background: var(--green);
+    border-radius: 50%;
+}
+
+/* ---------------------------------------------------------
+   Executive summary cards
+   --------------------------------------------------------- */
+
+.summary-card {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 205px;
+    height: 100%;
+
+    padding: 1.4rem 1.45rem;
+
+    background: #ffffff;
+
+    border: 1px solid var(--border);
+    border-radius: 15px;
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform 190ms ease,
+        box-shadow 190ms ease,
+        border-color 190ms ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: var(--shadow-md);
+
+    border-color: #bfdbfe;
+}
+
+.summary-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 3px;
+
+    background: var(--blue);
+}
+
+.summary-green::before {
+    background: var(--green);
+}
+
+.summary-navy::before {
+    background: var(--navy-800);
+}
+
+
+.summary-card-top {
+    display: flex;
+    align-items: center;
+
+    gap: 0.7rem;
+
+    margin-bottom: 1.25rem;
+}
+
+
+.summary-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    flex: 0 0 34px;
+
+    color: var(--blue-dark);
+    background: var(--blue-soft);
+
+    border-radius: 9px;
+
+    font-size: 0.68rem;
+    font-weight: 800;
+
+    letter-spacing: 0.04em;
+}
+
+.summary-green .summary-card-icon {
+    color: #047857;
+    background: #ecfdf5;
+}
+
+.summary-navy .summary-card-icon {
+    color: var(--navy-700);
+    background: #f1f5f9;
+}
+
+
+.summary-card-label {
+    color: var(--text-muted);
+
+    font-size: 0.67rem;
+    font-weight: 800;
+
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+
+.summary-card-title {
+    color: var(--text);
+
+    font-size: 1.05rem;
+    font-weight: 720;
+
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+
+    margin-bottom: 0.55rem;
+}
+
+
+.summary-card-text {
+    color: var(--text-muted);
+
+    font-size: 0.84rem;
+    line-height: 1.62;
+}
+
+/* ---------------------------------------------------------
+   Standard Streamlit elements
+   --------------------------------------------------------- */
+
+div[data-testid="stMetric"] {
+    background: #ffffff;
+
+    border: 1px solid var(--border);
+    border-radius: 13px;
+
+    padding: 1.05rem 1.15rem;
+
+    box-shadow: var(--shadow-sm);
+}
+
+div[data-testid="stDataFrame"] {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+div[data-testid="stExpander"] {
+    background: #ffffff;
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+div[data-testid="stCodeBlock"] {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+div[data-testid="stAlert"] {
+    border-radius: 12px;
+}
+
+div[data-testid="stPlotlyChart"] {
+    background: #ffffff;
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    padding: 0.55rem;
+
+    box-shadow: var(--shadow-sm);
+}
+
+
+/* ---------------------------------------------------------
+   Buttons
+   --------------------------------------------------------- */
+
+.stButton > button,
+.stLinkButton > a {
+    border-radius: 9px !important;
+
+    font-weight: 650 !important;
+
+    transition:
+        transform 180ms ease,
+        box-shadow 180ms ease !important;
+}
+
+.stButton > button:hover,
+.stLinkButton > a:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 7px 18px rgba(15, 23, 42, 0.09);
+}
+
+
+/* ---------------------------------------------------------
+   Inputs
+   --------------------------------------------------------- */
+
+div[data-baseweb="select"] > div,
+div[data-baseweb="input"] > div {
+    border-radius: 9px;
+}
+
+
+/* ---------------------------------------------------------
+   Dividers
+   --------------------------------------------------------- */
+
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+
+    margin-top: 2.2rem;
+    margin-bottom: 2.2rem;
+}
+
+
+/* ---------------------------------------------------------
+   Footer
+   --------------------------------------------------------- */
+
+.project-footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+
+    border-top: 1px solid var(--border);
+
+    text-align: center;
+}
+
+.footer-name {
+    color: var(--text-secondary);
+
+    font-size: 0.78rem;
+    font-weight: 650;
+}
+
+.footer-dot {
+    color: var(--blue);
+    padding: 0 0.3rem;
+}
+
+.footer-stack {
+    color: #94a3b8;
+
+    font-size: 0.68rem;
+
+    margin-top: 0.4rem;
+}
+
+.footer-stack span {
+    padding: 0 0.25rem;
+    color: #cbd5e1;
+}
+
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    .hero {
+        min-height: auto;
+
+        padding:
+            2.6rem
+            2rem;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-topline {
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+
+@media (max-width: 640px) {
+
+    .block-container {
+        padding-top: 1.2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .hero {
+        padding:
+            2.2rem
+            1.5rem;
+
+        border-radius: 17px;
+    }
+
+    .hero-title {
+        font-size: 2.3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .hero-topline {
+        flex-direction: column;
+    }
+
+.kpi-card,
+.navigation-card,
+.method-card,
+.summary-card {
+min-height: auto;
+}
+
+}
