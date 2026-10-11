@@ -10,9 +10,6 @@ from assets.ui import (
 )
 
 
-# ------------------------------------------------------------
-# Hero
-# ------------------------------------------------------------
 
 hero(
     label="Task 1 · Business Analysis",
@@ -25,9 +22,6 @@ hero(
 )
 
 
-# ------------------------------------------------------------
-# Business request
-# ------------------------------------------------------------
 
 section_header(
     label="Business Request",
@@ -79,9 +73,6 @@ with request_col2:
     )
 
 
-# ------------------------------------------------------------
-# Known context
-# ------------------------------------------------------------
 
 section_header(
     label="Known Context",
@@ -119,9 +110,6 @@ with context_col3:
     )
 
 
-# ------------------------------------------------------------
-# Clarifying questions
-# ------------------------------------------------------------
 
 section_header(
     label="Clarify First",
@@ -239,9 +227,6 @@ change would require additional analysis.
         )
 
 
-# ------------------------------------------------------------
-# Metric framework
-# ------------------------------------------------------------
 
 section_header(
     label="Metric Framework",
@@ -310,9 +295,6 @@ orders are later cancelled.
     )
 
 
-# ------------------------------------------------------------
-# Metric definitions
-# ------------------------------------------------------------
 
 section_header(
     label="Definitions",
@@ -375,9 +357,6 @@ percentage change as **N/A** rather than forcing a misleading value.
 )
 
 
-# ------------------------------------------------------------
-# Supporting metrics
-# ------------------------------------------------------------
 
 section_header(
     label="Supporting Context",
@@ -420,9 +399,6 @@ customers are ordering more or less frequently between periods.
     )
 
 
-# ------------------------------------------------------------
-# Analytical workflow
-# ------------------------------------------------------------
 
 section_header(
     label="Analytical Workflow",
@@ -548,9 +524,6 @@ with workflow_row3[2]:
     )
 
 
-# ------------------------------------------------------------
-# Campaign interpretation
-# ------------------------------------------------------------
 
 section_header(
     label="Business Context",
@@ -593,9 +566,6 @@ with campaign_col2:
     )
 
 
-# ------------------------------------------------------------
-# Expected output
-# ------------------------------------------------------------
 
 section_header(
     label="Final Output",
@@ -675,9 +645,6 @@ with output_col2:
     )
 
 
-# ------------------------------------------------------------
-# Conclusion
-# ------------------------------------------------------------
 
 section_header(
     label="Conclusion",
@@ -698,8 +665,5 @@ actually meant.
 )
 
 
-# ------------------------------------------------------------
-# Footer
-# ------------------------------------------------------------
 
 footer()
