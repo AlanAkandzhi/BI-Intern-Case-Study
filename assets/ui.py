@@ -2,18 +2,8 @@ from pathlib import Path
 
 import streamlit as st
 
-
-# ------------------------------------------------------------
-# Paths
-# ------------------------------------------------------------
-
 ROOT_DIR = Path(__file__).resolve().parent.parent
 CSS_PATH = ROOT_DIR / "assets" / "style.css"
-
-
-# ------------------------------------------------------------
-# Global CSS
-# ------------------------------------------------------------
 
 def load_css():
     with open(
@@ -28,11 +18,6 @@ def load_css():
         unsafe_allow_html=True,
     )
 
-
-# ------------------------------------------------------------
-# Badge
-# ------------------------------------------------------------
-
 def badge(
     text,
     variant="blue",
@@ -42,11 +27,6 @@ def badge(
         f'{text}'
         f'</span>'
     )
-
-
-# ------------------------------------------------------------
-# Hero
-# ------------------------------------------------------------
 
 def hero(
     label,
@@ -104,11 +84,6 @@ def hero(
         unsafe_allow_html=True,
     )
 
-
-# ------------------------------------------------------------
-# Section heading
-# ------------------------------------------------------------
-
 def section_header(
     label,
     title,
@@ -144,10 +119,6 @@ def section_label(text):
     )
 
 
-# ------------------------------------------------------------
-# KPI card
-# ------------------------------------------------------------
-
 def kpi_card(
     label,
     value,
@@ -167,11 +138,6 @@ def kpi_card(
         html,
         unsafe_allow_html=True,
     )
-
-
-# ------------------------------------------------------------
-# Insight card
-# ------------------------------------------------------------
 
 def insight_card(
     title,
@@ -202,10 +168,6 @@ def insight_card(
         unsafe_allow_html=True,
     )
 
-
-# ------------------------------------------------------------
-# Navigation card
-# ------------------------------------------------------------
 
 def navigation_card(
     number,
@@ -239,11 +201,6 @@ def navigation_card(
         unsafe_allow_html=True,
     )
 
-
-# ------------------------------------------------------------
-# Methodology step
-# ------------------------------------------------------------
-
 def methodology_step(
     number,
     title,
@@ -262,11 +219,6 @@ def methodology_step(
         unsafe_allow_html=True,
     )
 
-
-# ------------------------------------------------------------
-# Status pill
-# ------------------------------------------------------------
-
 def status_pill(
     text,
     status="validated",
@@ -282,11 +234,6 @@ def status_pill(
         html,
         unsafe_allow_html=True,
     )
-
-
-# ------------------------------------------------------------
-# Executive summary card
-# ------------------------------------------------------------
 
 def summary_card(
     label,
@@ -321,10 +268,6 @@ def summary_card(
         unsafe_allow_html=True,
     )
 
-# ------------------------------------------------------------
-# Footer
-# ------------------------------------------------------------
-
 def footer():
     footer_html = (
         '<div class="project-footer">'
@@ -353,21 +296,3 @@ def footer():
         footer_html,
         unsafe_allow_html=True,
     )
-
-
-# ------------------------------------------------------------
-# Legacy sidebar helper
-# ------------------------------------------------------------
-
-def sidebar_brand():
-    """
-    Temporary compatibility helper.
-
-    The existing project pages still import sidebar_brand().
-    Navigation and sidebar branding are now handled globally
-    by app.py, so this function intentionally does nothing.
-
-    It can be removed after all pages are migrated to the
-    new application structure.
-    """
-    pass

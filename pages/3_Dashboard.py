@@ -15,17 +15,10 @@ from assets.ui import (
 )
 
 
-# ------------------------------------------------------------
-# Paths
-# ------------------------------------------------------------
-
 ROOT_DIR = Path(__file__).resolve().parent.parent
 DB_PATH = ROOT_DIR / "database" / "bi_home_task.db"
 
 
-# ------------------------------------------------------------
-# Visual constants
-# ------------------------------------------------------------
 
 BLUE = "#3B82F6"
 BLUE_DARK = "#2563EB"
@@ -40,10 +33,6 @@ STATUS_COLORS = {
     "cancelled": RED,
 }
 
-
-# ------------------------------------------------------------
-# Load data
-# ------------------------------------------------------------
 
 @st.cache_data
 def load_data():
@@ -72,10 +61,6 @@ def load_data():
 
 customers, orders, products = load_data()
 
-
-# ------------------------------------------------------------
-# Prepare analytical dataset
-# ------------------------------------------------------------
 
 # Product data is at order-line grain.
 # Aggregate it first so the analytical dataset contains
@@ -124,10 +109,6 @@ analysis_df["order_value"] = (
     analysis_df["order_value"].fillna(0)
 )
 
-
-# ------------------------------------------------------------
-# Plotly theme helper
-# ------------------------------------------------------------
 
 def apply_chart_theme(
     figure,
@@ -192,11 +173,6 @@ def apply_chart_theme(
 
     return figure
 
-
-# ------------------------------------------------------------
-# Hero
-# ------------------------------------------------------------
-
 hero(
     label="Interactive Analysis",
     title="Sales Dashboard",
@@ -209,10 +185,6 @@ hero(
 )
 
 
-# ------------------------------------------------------------
-# Dashboard context
-# ------------------------------------------------------------
-
 section_header(
     label="Dashboard",
     title="Interactive sample-data overview.",
@@ -223,10 +195,6 @@ section_header(
     ),
 )
 
-
-# ------------------------------------------------------------
-# Filters
-# ------------------------------------------------------------
 
 with st.container(border=True):
 
@@ -309,19 +277,11 @@ with st.container(border=True):
         )
 
 
-# ------------------------------------------------------------
-# Apply filters
-# ------------------------------------------------------------
-
 filtered_df = analysis_df[
     analysis_df["city"].isin(selected_cities)
     & analysis_df["status"].isin(selected_statuses)
 ].copy()
 
-
-# ------------------------------------------------------------
-# Empty state
-# ------------------------------------------------------------
 
 if filtered_df.empty:
     st.warning(
@@ -333,10 +293,6 @@ if filtered_df.empty:
     footer()
     st.stop()
 
-
-# ------------------------------------------------------------
-# KPI calculations
-# ------------------------------------------------------------
 
 total_orders = filtered_df[
     "id_order"
@@ -379,10 +335,6 @@ cancellation_rate = (
     else 0
 )
 
-
-# ------------------------------------------------------------
-# KPI cards
-# ------------------------------------------------------------
 
 section_header(
     label="Current Selection",
@@ -436,11 +388,6 @@ with kpi5:
         variant="blue",
     )
 
-
-# ------------------------------------------------------------
-# Dynamic insight
-# ------------------------------------------------------------
-
 st.write("")
 
 
@@ -486,10 +433,6 @@ insight_card(
     value=f"{completion_rate:.0f}% completion rate",
     text=insight_text,
 )
-
-# ------------------------------------------------------------
-# Export current selection
-# ------------------------------------------------------------
 
 section_header(
     label="Export Data",
@@ -617,11 +560,6 @@ st.caption(
     "under the current dashboard filters."
 )
 
-
-# ------------------------------------------------------------
-# Order status and customer activity
-# ------------------------------------------------------------
-
 section_header(
     label="Order Activity",
     title="Status and customer distribution.",
@@ -673,10 +611,6 @@ chart_col1, chart_col2 = st.columns(
     [0.9, 1.1]
 )
 
-
-# ------------------------------------------------------------
-# Donut chart
-# ------------------------------------------------------------
 
 with chart_col1:
 
@@ -759,11 +693,6 @@ with chart_col1:
         },
     )
 
-
-# ------------------------------------------------------------
-# Orders by customer
-# ------------------------------------------------------------
-
 with chart_col2:
 
     st.markdown("#### Orders by Customer")
@@ -812,11 +741,6 @@ with chart_col2:
             "displayModeBar": False,
         },
     )
-
-
-# ------------------------------------------------------------
-# Completed revenue
-# ------------------------------------------------------------
 
 section_header(
     label="Revenue",
@@ -914,10 +838,6 @@ else:
     )
 
 
-# ------------------------------------------------------------
-# Timeline
-# ------------------------------------------------------------
-
 section_header(
     label="Timeline",
     title="Orders over time.",
@@ -993,10 +913,6 @@ st.plotly_chart(
 )
 
 
-# ------------------------------------------------------------
-# Geography
-# ------------------------------------------------------------
-
 section_header(
     label="Customer Geography",
     title="Order activity by city.",
@@ -1038,11 +954,6 @@ st.dataframe(
     use_container_width=True,
     hide_index=True,
 )
-
-
-# ------------------------------------------------------------
-# Full sample observations
-# ------------------------------------------------------------
 
 section_header(
     label="Full Sample",
@@ -1121,10 +1032,5 @@ with observation_col2:
             "business-performance conclusions."
         ),
     )
-
-
-# ------------------------------------------------------------
-# Footer
-# ------------------------------------------------------------
 
 footer()
