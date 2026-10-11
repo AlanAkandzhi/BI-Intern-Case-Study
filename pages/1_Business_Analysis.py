@@ -323,6 +323,10 @@ with formula_col1:
         "Calculated using the agreed order definition for both periods."
     )
 
+    st.markdown(
+        "**Illustrative example:** 100 → 120 completed orders = **+20% MoM**"
+    )
+
 
 with formula_col2:
     st.markdown("#### Cancellation Rate")
@@ -340,6 +344,11 @@ with formula_col2:
 
     st.caption(
         "Shows the share of orders that were cancelled."
+    )
+
+    st.markdown(
+        "**Illustrative example:** 20 cancelled out of 100 total orders = "
+        "**20% cancellation rate**"
     )
 
 

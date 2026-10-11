@@ -609,7 +609,7 @@ section[data-testid="stSidebar"] [data-testid="stSidebarNavSeparator"] {
 
     min-height: 220px;
 
-    padding: 1.45rem;
+    padding: 1.45rem 1.45rem 3.5rem;
 
     background:
         linear-gradient(
@@ -1178,10 +1178,12 @@ hr {
     }
 
 .kpi-card,
-.navigation-card,
 .method-card,
 .summary-card {
-min-height: auto;
+    min-height: auto;
 }
 
+.navigation-card {
+    min-height: auto;
+    padding-bottom: 3.5rem;
 }
